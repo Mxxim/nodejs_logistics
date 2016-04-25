@@ -1,0 +1,16 @@
+{
+  "version": "0.0.0",
+  "port": 3000,
+  "server": "localhost",
+  "PAGE_SIZE": 25,
+  "dir": {
+    "views": "./views",
+    "static": "./static"
+  },
+  "MONGODB": {
+    "host": "localhost",
+    "user": "",
+    "password": "",
+    "database": "discuz"
+  }
+}
