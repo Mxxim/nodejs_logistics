@@ -3,6 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        var items = [];
+        var yearObj = {};
+
+        yearObj.year = 2016;
+        yearObj.yList = [];
+
+        yearObj.yList[4] = [];
+        yearObj.yList[5] = [];
+
+        var monthObj = {};
+        monthObj = {
+            from:"2016-05-02",
+            to:"eeeee"
+        }
+        yearObj.yList[5].push(monthObj);
+        monthObj = {
+            from:"2016-05-09",
+            to:"eeeee"
+        }
+        yearObj.yList[5].push(monthObj);
+
+        monthObj = {
+            from:"2016-04-03",
+            to:"eeeee"
+        }
+        yearObj.yList[4].push(monthObj);
+
+        items.push(yearObj);
+
+        yearObj = {};
+        yearObj.year = 2015;
+        yearObj.yList = [];
+        yearObj.yList[4] = [];
+        yearObj.yList[5] = [];
+
+        monthObj = {
+            from:"2015-04-03",
+            to:"eeeee"
+        };
+        yearObj.yList[4].push(monthObj);
+
+        monthObj = {
+            from:"2015-04-23",
+            to:"eeeee"
+        };
+        yearObj.yList.push(monthObj);
+        items.push(yearObj);
+        console.log(items);
+
+    </script>
 </head>
 <body>
 

@@ -174,7 +174,6 @@ userCtrl.authentication = function(req,res,next){
             month = date.getMonth()+1,
             day = date.getDate();
         //var userUploadedFeedMessagesLocation = 'public/images/uploads/'+year+'-'+month+'-'+day+'/';
-        //var uniqueRandomImageName            = 'image-' + uniqueSHA1String;
         var userUploadedFeedMessagesLocation = 'public/images/uploads/';
         var uniqueRandomImageName            = year+'-'+month+'-'+day+'-' + uniqueSHA1String;
         // This variable is actually an array which has 5 values,
