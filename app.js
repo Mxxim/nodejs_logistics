@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var cors = require('cors');
 
 // 连接本地数据库 mongodb://<db_user>:<db_password>@<hostname>:<port>/<dbname>
 var mongodb = require('./config/mongoose')();
@@ -38,6 +39,12 @@ var routes = require('./routes/routes');
 
 // 实例化Express.js 对象
 var app = express();
+
+// http发生了413错误码，请求实体过大
+app.use(bodyParser.json({ "limit":"10000kb"}));
+
+// 设置跨域访问
+app.use(cors());
 
 // view engine setup，设置相关配置——视图模板的绝对路径以及模板文件的扩展
 app.set('views', path.join(__dirname, 'views'));

@@ -11,7 +11,6 @@ var UserSchema = new mongoose.Schema({
     username:{                          // 用户名（手机号码）
         type:String,
         match:match,
-        unique:true,
         required:true
     },
     password:{                          // 密码
@@ -26,9 +25,10 @@ var UserSchema = new mongoose.Schema({
         max:1,
         required:true
     },
-    cardImgFront:String,                // 身份证正面照路径
-    cardImgBack:String,                 // 身份证背面照路径
-    userImg:String,                     // 个人大头照
+    IDCardImg:String,                // 身份证正面照路径
+    IDCardBackImg:String,                 // 身份证背面照路径
+    userImage:String,                     // 个人近照路径
+    carCardImg:String,                     // 驾驶证照路径
     ifAuth:{                            // 是否认证，false表示未认证，true表示已认证
         type:Boolean,
         required:true
