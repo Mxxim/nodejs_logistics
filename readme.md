@@ -1,2 +1,2 @@
-##ÎïÁ÷ÅäËÍAPP·þÎñ¶Ë
-»ùÓÚExpress4.XµÄNodeJS·þÎñ¶Ë¡£Êý¾Ý¿âÓÃµÄÊÇMongoDB¡£
+##ç‰©æµé…è´§APPæœåŠ¡ç«¯
+NodeJS + Express4 + MongoDB
