@@ -187,4 +187,35 @@ orderCtrl.getList = function(req,res,next){
     //});
 }
 
+orderCtrl.cancel = function(req,res,next){
+    var oid = req.body.oid;
+    console.log(oid);
+
+    OrderModel.update({_id:oid},{
+        $set:{
+            state:0
+        }
+    }).exec(function(err){
+        if(err){
+            return res.json({code:0});
+        }
+        res.json({code:1});
+    });
+}
+
+orderCtrl.confirm = function(req,res,next){
+    var oid = req.body.oid;
+
+    OrderModel.update({_id:oid},{
+        $set:{
+            state:2
+        }
+    }).exec(function(err){
+        if(err){
+            return res.json({code:0});
+        }
+        res.json({code:1});
+    });
+}
+
 module.exports = orderCtrl;

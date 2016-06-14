@@ -9,6 +9,7 @@
 
 var mongoose = require('mongoose');
 var lorryModel = mongoose.model('Lorry');
+var lorryInfoModel = mongoose.model('LorryInfo');
 
 var crypto =  require('crypto');
 var fs = require('fs');
@@ -194,6 +195,31 @@ lorryCtrl.getList = function(req,res,next){
         //        cargos: data
         //    });
         //});
+}
+
+/**
+ * 删除车辆(该车辆下的车源也一起被删除)
+ * @param req
+ * @param res
+ * @param next
+ */
+lorryCtrl.delete = function(req,res,next){
+
+    var lid = req.body.lid;
+
+    lorryModel.remove({_id:lid }, function(err){
+        if(err){
+            return res.json({code:0,message:"删除车辆出现错误"});
+        }
+        lorryInfoModel.remove({lorry:lid},function(err,data){
+            if(err){
+                return res.json({code:0,message:"删除车源出现错误"});
+            }
+            console.log(data);
+            res.json({code:1,message:"删除成功！！"});
+        });
+
+    })
 }
 
 

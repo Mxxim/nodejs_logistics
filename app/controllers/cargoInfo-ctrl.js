@@ -111,9 +111,10 @@ cargoInfoCtrl.addCargoInfo = function(req,res,next){
     }
 
     userModel.findOne({_id:userID},function(err,data){
+        console.log(data);
         if(err){
             console.log(err);
-            return res.json({code:500,message:'数据库保存出错'});
+            return res.json({code:500,message:'数据库查找出错'});
         }
         if(data.ifAuth == false){
             return res.json({code:0,message:'您还未认证，无法发布货源'});
@@ -233,6 +234,8 @@ cargoInfoCtrl.search = function(req,res,next){
           lorryType = req.body.lorryType,
         lorryLength = req.body.lorryLength;
 
+    console.log(from);
+    console.log(new RegExp(from));
 
     cargoInfoModel
         .find({ifTrade:0,from:new RegExp(from),to:new RegExp(to),dateTime:new RegExp(dateTime),lorryType:new RegExp(lorryType),lorryLength:new RegExp(lorryLength)})
@@ -243,8 +246,21 @@ cargoInfoCtrl.search = function(req,res,next){
                 console.log(err);
                 return res.json({code:500,message:"数据库查找报错"});
             }
+            console.log(cargo);
             res.json({code:1,cargos:cargo});
         });
+}
+
+cargoInfoCtrl.delete = function(req,res,next){
+
+    var cid = req.body.cid;
+
+    cargoInfoModel.remove({_id:cid }, function(err){
+        if(err){
+            return res.json({code:0,message:"删除货源出现错误"});
+        }
+        res.json({code:1,message:"删除成功！！"});
+    })
 }
 
 module.exports = cargoInfoCtrl;

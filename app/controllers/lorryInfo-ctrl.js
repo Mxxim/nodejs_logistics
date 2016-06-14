@@ -55,6 +55,18 @@ lorryInfoCtrl.add = function(req,res,next){
 
 }
 
+lorryInfoCtrl.delete = function(req,res,next){
+
+    var liid = req.body.liid;
+
+    lorryInfoModel.remove({_id:liid }, function(err){
+        if(err){
+            return res.json({code:0,message:"删除车源出现错误"});
+        }
+        res.json({code:1,message:"删除成功！！"});
+    })
+}
+
 //lorryInfoCtrl.getListById = function(req,res,next){
 //    var userID     = req.body.userID;
 //

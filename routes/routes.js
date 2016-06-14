@@ -27,17 +27,22 @@ router.post('/cargo/getListById',CargoInfo.getListById);
 router.get('/cargo/getList',CargoInfo.getList);
 router.post('/cargo/getById',CargoInfo.getById);
 router.post('/cargo/query',CargoInfo.search);
+router.post('/cargo/delete',CargoInfo.delete);
 
 // lorry
 router.post('/lorry/add',Lorry.add);
 router.post('/lorry/getList',Lorry.getList);
+router.post('/lorry/delete',Lorry.delete);
 
 router.post('/lorryInfo/add',LorryInfo.add);
 router.post('/lorryInfo/getList',LorryInfo.getList);
+router.post('/lorryInfo/delete',LorryInfo.delete);
 
 // order
 router.post('/order/add',Order.add);
 router.post('/order/getList',Order.getList);
+router.post('/order/cancel',Order.cancel);
+router.post('/order/confirm',Order.confirm);
 
 
 module.exports = router;
